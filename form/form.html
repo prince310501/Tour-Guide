@@ -1,0 +1,162 @@
+<html>
+	<head>
+		<title>Tour Form</title>
+		<style rel='stylesheet'>
+		@import "http://fonts.googleapis.com/css?family=Raleway";
+body{
+font-family:'Raleway',sans-serif
+}
+div#first{
+width:350px;
+height:auto;
+margin:50px auto ;
+padding:50px;
+background-color:#EEE;
+color:#333;
+border:2px solid #C2D6FF;
+border-radius:40px 0 40px 0
+}
+label{
+font-size:15px;
+font-weight:700
+}
+.input{
+background-position:6px;
+border:1px solid #DADADA;
+margin-top:10px;
+margin-bottom:10px;
+padding-left:35px;
+width:310px;
+height:30px;
+font-size:14px;
+box-shadow:0 0 10px;
+border-radius:5px;
+}
+.area{
+height:50px;
+background-position:6px;
+border:1px solid #DADADA;
+margin-top:10px;
+margin-bottom:10px;
+padding-left:35px;
+width:310px;
+font-size:14px;
+box-shadow:0 0 10px;
+border-radius:5px;
+}
+#radio-button{
+	padding: 10px 0;
+    box-shadow: 0 0 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 310px;
+    border: 1px solid #DADADA;
+    border-radius: 5px;
+    background: white;
+}
+#chk-button{
+	padding: 10px 0;
+    box-shadow: 0 0 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 310px;
+    border: 1px solid #DADADA;
+    border-radius: 5px;
+    background: white;
+}
+#submit {
+background-color:#cc7a66;
+border-radius:5px;
+border:none;
+padding:10px 25px;
+color:#FFF;
+text-shadow:1px 1px 1px #949494;
+margin-left:120px
+}
+#submit:hover{
+background-color:#FF9980
+}
+</style>
+
+	<script type = "text/javascript">
+
+      function validate() {
+      
+         if( document.getElementById("name").value == "" ) {
+            alert( "Please provide your name!" );
+            document.myForm.Name.focus() ;
+            return false;
+         }
+
+				 if( document.getElementById("members").value == "" || document.getElementById("members").value <= 0) {
+            
+            alert( "Please provide a acceptable number of people." );
+            document.getElementById("members").focus() ;
+            return false;
+         }
+
+         var emailID = document.getElementById("emailID").value;
+         let atpos = emailID.indexOf("@");
+         let dotpos = emailID.lastIndexOf(".");
+         
+         if (atpos < 1 || ( dotpos - atpos < 2 )) {
+            alert("Please enter correct email ID")
+            document.myForm.EMail.focus() ;
+            return false;
+         }
+         
+				 if( document.getElementById("number").value == "" || document.getElementById("number").value <= 0) {
+            
+            alert( "Please provide a valid contact number." );
+            document.getElementById("number").focus() ;
+            return false;
+         }
+
+				 if( document.getElementById("days").value == "" || document.getElementById("days").value <= 0) {
+            
+            alert( "Please provide a acceptable number of days." );
+            document.getElementById("days").focus() ;
+            return false;
+         }
+				 var body=document.getElementById("first");
+				 body.innerHTML="<h1 style=\'margin: 60px auto\'>Thank you</h1><br><h2 style=\'margin: auto\'>We will get back to you soon<h2><br><h3 style=\'margin: auto\'>Redirecting to home page in 3 seconds.....<h3> ";
+				 setTimeout(time,3000);
+
+      }
+			function time(){window.location = "http://www.google.com";}
+</script>
+	</head>
+<body>
+<div id="first">
+	<h1 style="text-align: center;">
+		Travel Form
+	</h1>
+	<hr>
+	<br/>
+<label>Full Name :</label>
+<input id="name" placeholder="Full Name" class="input" type="text"><br/>
+<label>Number of People :</label>
+<input id="members" class="input" placeholder="Number of people" type="number">
+<label>Email :</label>
+<input id="emailID" placeholder="Email" class="input" type="email">
+<label>Contact Number :</label>
+<input id="number" class="input" placeholder="Contact Number" type="number">
+<label>Select continent :</label>
+<select class="input" >
+	<option value="africa">Africa</option>
+	<option value="asia">Asia</option>
+	<option value="australia">Australia</option>
+	<option value="europe">Europe</option>
+	<option value="north amarica">North Amarica</option>
+	<option value="south amarica">South Amarica</option>
+</select><br/>
+<label>Date :</label>
+<input id="date" class="input" placeholder="date" type="date">
+<label>Number of Days :</label>
+<input id="days" class="input" placeholder="Number of Days" type="number">
+<br>
+<hr>
+<input id="submit" type="submit" value="Submit" onclick= "validate()">
+</div>
+</body>
+</html>
